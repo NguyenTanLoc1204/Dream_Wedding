@@ -1,6 +1,6 @@
 # WEDDING WEBSITE PROJECT STRUCTURE
 
-## 📁 Backend Structure (wedding_chi_be_den/backend)
+## 📁 Backend Structure (Dream_Wedding/backend)
 
 ```
 backend/
@@ -34,7 +34,7 @@ backend/
 └── server.js                    # Server entry point
 ```
 
-## 📁 Frontend Structure (wedding_chi_be_den/frontend)
+## 📁 Frontend Structure (Dream_Wedding/frontend)
 
 ```
 frontend/
