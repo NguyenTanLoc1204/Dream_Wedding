@@ -1,0 +1,30 @@
+.story-hero {
+  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary-gold);
+  transform: translateX(-50%);
+}
+
+.timeline-card {
+  animation-delay: calc(var(--index) * 0.2s);
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+}

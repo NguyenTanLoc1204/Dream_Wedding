@@ -1,0 +1,93 @@
+.contact-hero {
+  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+}
+
+.section-description {
+  max-width: 600px;
+  margin: 20px auto 0;
+  font-size: 1.1rem;
+  color: var(--text-gray);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-info {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+  margin-bottom: 30px;
+  color: var(--primary-gold);
+}
+
+.info-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  align-items: start;
+}
+
+.info-item .icon {
+  font-size: 2rem;
+}
+
+.info-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.info-item p {
+  color: var(--text-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Link to Wishes Page */
+.wishes-link-box {
+  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-bronze));
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.wishes-link-box h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.wishes-link-box p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.wishes-link-box a {
+  display: inline-block;
+  background: white;
+  color: var(--primary-gold);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.wishes-link-box a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

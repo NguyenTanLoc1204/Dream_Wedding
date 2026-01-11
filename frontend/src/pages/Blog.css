@@ -1,0 +1,21 @@
+.blog-hero {
+  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.no-blogs {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-gray);
+}
+
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}

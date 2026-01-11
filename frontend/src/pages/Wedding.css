@@ -1,0 +1,63 @@
+.wedding-hero {
+  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+}
+
+.wedding-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.wedding-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.wedding-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.wedding-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.wedding-card h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--primary-gold);
+}
+
+.wedding-details p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.wedding-map {
+  margin-top: 60px;
+}
+
+.wedding-map h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .wedding-cards {
+    grid-template-columns: 1fr;
+  }
+}
