@@ -7,7 +7,7 @@ import './Wishes.css'
 export default function Wishes() {
   const [wishes, setWishes] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState('all') // all, recent, oldest
+  const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     loadWishes()
@@ -57,7 +57,6 @@ export default function Wishes() {
 
       <section className="wishes-list-section section">
         <div className="container">
-          {/* Filter Buttons */}
           <div className="wishes-filters">
             <button 
               className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
@@ -79,7 +78,6 @@ export default function Wishes() {
             </button>
           </div>
 
-          {/* Wishes Grid */}
           {loading ? (
             <Loading />
           ) : filteredWishes.length > 0 ? (
@@ -128,7 +126,6 @@ export default function Wishes() {
         </div>
       </section>
 
-      {/* Floating Action Button - Add New Wish */}
       <a href="/contact" className="fab-btn" title="Gửi lời chúc">
         ✍️
       </a>

@@ -1,14 +1,16 @@
 .blog-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-soft);
   transition: var(--transition);
+  border: 1px solid var(--mist);
 }
 
 .blog-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--soft-pink);
 }
 
 .blog-image {
@@ -32,13 +34,14 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background: var(--primary-gold);
+  background: var(--primary-rose);
   color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .blog-content {
@@ -48,19 +51,19 @@
 .blog-meta {
   display: flex;
   gap: 20px;
-  font-size: 0.9rem;
-  color: var(--text-light);
+  font-size: 0.85rem;
+  color: var(--silver);
   margin-bottom: 15px;
 }
 
 .blog-content h3 {
   margin-bottom: 15px;
-  color: var(--text-dark);
+  color: var(--charcoal);
   font-size: 1.5rem;
 }
 
 .blog-content p {
-  color: var(--text-gray);
+  color: var(--slate);
   margin-bottom: 20px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -69,11 +72,14 @@
 }
 
 .blog-link {
-  color: var(--primary-gold);
-  font-weight: 600;
+  color: var(--primary-rose);
+  font-weight: 700;
   transition: var(--transition);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .blog-link:hover {
-  color: var(--secondary-bronze);
+  color: var(--charcoal);
 }

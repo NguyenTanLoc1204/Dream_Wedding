@@ -39,11 +39,11 @@ export default function About() {
       <section className="couple-section section">
         <div className="container">
           <div className="couple-grid">
-            <CoupleCard {...bride} />
+            <CoupleCard {...groom} />
             <div className="couple-heart">
               <span>💕</span>
             </div>
-            <CoupleCard {...groom} />
+            <CoupleCard {...bride} />
           </div>
         </div>
       </section>

@@ -1,8 +1,9 @@
 .contact-form {
   background: white;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--mist);
 }
 
 .form-group {
@@ -13,7 +14,8 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--charcoal);
+  font-size: 0.95rem;
 }
 
 .form-group input,
@@ -21,18 +23,22 @@
 .form-group select {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
   font-size: 1rem;
   font-family: var(--font-body);
   transition: var(--transition);
+  background: var(--pearl);
+  color: var(--charcoal);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--primary-gold);
+  border-color: var(--primary-rose);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 105, 126, 0.1);
 }
 
 .form-row {
@@ -45,15 +51,13 @@
   display: block;
   text-align: right;
   font-size: 0.85rem;
-  color: var(--text-light);
+  color: var(--silver);
   margin-top: 5px;
 }
 
 .submit-btn {
   width: 100%;
   margin-top: 10px;
-  font-size: 1.1rem;
-  padding: 15px;
 }
 
 @media (max-width: 768px) {

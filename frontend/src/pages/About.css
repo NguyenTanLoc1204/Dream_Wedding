@@ -1,5 +1,90 @@
 .about-hero {
-  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+  background: var(--gradient-rose);
+}
+
+.couple-section {
+  background: white;
+}
+
+.couple-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.couple-heart {
+  font-size: 5rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 15px rgba(255, 182, 217, 0.4));
+}
+
+.love-quote {
+  background: var(--gradient-dreamy);
+  color: var(--text-dark);
+  padding: 90px 20px;
+  position: relative;
+}
+
+.love-quote::before {
+  content: '💕';
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  font-size: 6rem;
+  opacity: 0.1;
+}
+
+.love-quote::after {
+  content: '💕';
+  position: absolute;
+  bottom: 30px;
+  right: 5%;
+  font-size: 6rem;
+  opacity: 0.1;
+}
+
+.love-quote blockquote {
+  color: #000;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.9;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.love-quote footer {
+  margin-top: 35px;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary-pink);
+}
+
+@media (max-width: 768px) {
+  .couple-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  
+  .couple-heart {
+    order: 2;
+  }
+  
+  .love-quote blockquote {
+    font-size: 1.5rem;
+  }
+}
+/* 
+
+.about-hero {
+  background: var(--champagne);
 }
 
 .couple-section {
@@ -17,13 +102,25 @@
 
 .couple-heart {
   font-size: 4rem;
+  color: var(--primary-rose);
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
 .love-quote {
-  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-bronze));
+  background: var(--charcoal);
   color: white;
   padding: 80px 20px;
+  position: relative;
+}
+
+.love-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-rose);
 }
 
 .love-quote blockquote {
@@ -33,13 +130,14 @@
   font-size: 1.8rem;
   font-style: italic;
   line-height: 1.8;
+  color: var(--pearl);
 }
 
 .love-quote footer {
   margin-top: 30px;
   font-size: 1.2rem;
   font-style: normal;
-  opacity: 0.9;
+  color: var(--soft-pink);
 }
 
 @media (max-width: 768px) {
@@ -55,4 +153,4 @@
   .love-quote blockquote {
     font-size: 1.3rem;
   }
-}
+} */

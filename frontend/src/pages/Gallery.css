@@ -1,5 +1,5 @@
 .gallery-hero {
-  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+  background: var(--champagne);
 }
 
 .gallery-filters {
@@ -12,18 +12,21 @@
 
 .filter-btn {
   padding: 10px 25px;
-  border: 2px solid var(--primary-gold);
+  border: 2px solid var(--primary-rose);
   background: white;
-  color: var(--primary-gold);
-  border-radius: 25px;
+  color: var(--primary-rose);
+  border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--primary-gold);
+  background: var(--primary-rose);
   color: white;
 }
 
@@ -36,10 +39,16 @@
 .gallery-item {
   position: relative;
   height: 350px;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--mist);
+}
+
+.gallery-item:hover {
+  box-shadow: var(--shadow-medium);
+  border-color: var(--soft-pink);
 }
 
 .gallery-item img {
@@ -59,7 +68,7 @@
   left: 0;
   width: 100%;
   padding: 30px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(61, 61, 61, 0.95), transparent);
   color: white;
   transform: translateY(100%);
   transition: var(--transition);
@@ -82,7 +91,7 @@
 .no-images {
   text-align: center;
   padding: 60px 20px;
-  color: var(--text-gray);
+  color: var(--slate);
 }
 
 /* Lightbox */
@@ -112,36 +121,44 @@
   max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .lightbox-close {
   position: absolute;
   top: -40px;
   right: 0;
-  background: none;
+  background: var(--primary-rose);
   border: none;
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
   cursor: pointer;
   transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-close:hover {
-  color: var(--primary-gold);
+  transform: rotate(90deg);
 }
 
 .lightbox-info {
   text-align: center;
   margin-top: 20px;
-  color: white;
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
 }
 
 .lightbox-info h3 {
-  color: white;
+  color: var(--charcoal);
   margin-bottom: 10px;
 }
 
 .lightbox-info p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--slate);
 }

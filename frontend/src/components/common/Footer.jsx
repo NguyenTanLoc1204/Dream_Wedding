@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>Chi & Be</h3>
+          <h3>Phương & Tú</h3>
           <p className="footer-tagline">Forever Together 💕</p>
         </div>
 
@@ -23,8 +23,8 @@ export default function Footer() {
 
         <div className="footer-section">
           <h4>Contact Info</h4>
-          <p>📧 contact@chiandbe.com</p>
-          <p>📱 +84 901 234 567</p>
+          <p>📧 phuonggtuuu@gmail.com</p>
+          <p>📱 0375 987 029</p>
           <div className="social-icons">
             <a href="#" aria-label="Facebook">📘</a>
             <a href="#" aria-label="Instagram">📷</a>

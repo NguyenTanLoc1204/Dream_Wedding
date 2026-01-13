@@ -1,5 +1,5 @@
 .blog-hero {
-  background: linear-gradient(135deg, #f5e6d3 0%, #fafafa 100%);
+  background: var(--champagne);
 }
 
 .blog-grid {
@@ -11,7 +11,7 @@
 .no-blogs {
   text-align: center;
   padding: 60px 20px;
-  color: var(--text-gray);
+  color: var(--slate);
 }
 
 @media (max-width: 768px) {
