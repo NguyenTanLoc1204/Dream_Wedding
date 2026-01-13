@@ -5,7 +5,7 @@ export default function About() {
   const bride = {
     name: 'Cẩm Tú',
     role: 'The Bride',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500',
+    image: '/images/couple/bride.jpeg',
     description: 'Cô gái yêu thích sự giản dị, tận hưởng những điều nhỏ nhặt trong cuộc sống.',
     social: {
       facebook: '#',
@@ -16,7 +16,7 @@ export default function About() {
   const groom = {
     name: 'Hoàng Phương',
     role: 'The Groom',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500',
+    image: '/images/couple/groom.jpeg',
     description: 'Chàng trai yêu công nghệ, luôn nỗ lực mang đến điều tốt đẹp nhất cho người mình yêu.',
     social: {
       facebook: '#',

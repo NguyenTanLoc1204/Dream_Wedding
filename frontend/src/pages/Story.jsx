@@ -8,6 +8,7 @@ export default function Story() {
       title: 'Lần đầu gặp gỡ',
       description: 'Chúng mình gặp nhau lần đầu trong một buổi họp mặt bạn bè. Ánh mắt đầu tiên đã khiến trái tim chúng mình rung động.',
       image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600',
+      // image: '/images/story/first-meet.jpg',
       position: 'left'
     },
     {

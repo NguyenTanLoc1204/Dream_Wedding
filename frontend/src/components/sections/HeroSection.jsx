@@ -11,7 +11,7 @@ export default function HeroSection() {
           <span className="ampersand">&</span>
           <span className="bride">Tú</span>
         </h1>
-        <p className="hero-date animate-fade-in-up">17th January 2026</p>
+        <p className="hero-date animate-fade-in-up">17th January, 2026</p>
         <div className="hero-divider"></div>
         <a href="#countdown" className="btn btn-primary animate-scale-in">
           Save The Date

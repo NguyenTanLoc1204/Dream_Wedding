@@ -1,38 +1,59 @@
 import { useState, useEffect } from 'react'
-import { galleryService } from '../services/galleryService'
+import { galleryConfig, getImagesByCategory } from '../config/galleryConfig'
+import GalleryCarousel from '../components/sections/GalleryCarousel'
 import Loading from '../components/common/Loading'
 import './Gallery.css'
 
 export default function Gallery() {
   const [images, setImages] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [lightboxImage, setLightboxImage] = useState(null)
+  const [viewMode, setViewMode] = useState('carousel')
+  const [imageLoadErrors, setImageLoadErrors] = useState({})
 
   const categories = [
     { value: 'all', label: 'Tất cả' },
-    { value: 'pre-wedding', label: 'Pre-Wedding' },
-    { value: 'engagement', label: 'Lễ ăn hỏi' },
-    { value: 'ceremony', label: 'Lễ cưới' },
-    { value: 'reception', label: 'Tiệc cưới' }
+    ...Object.entries(galleryConfig).map(([key, config]) => ({
+      value: key,
+      label: config.label
+    }))
   ]
 
   useEffect(() => {
     loadGallery()
   }, [selectedCategory])
 
-  const loadGallery = async () => {
-    try {
-      setLoading(true)
-      const response = await galleryService.getAllGallery(
-        selectedCategory === 'all' ? null : selectedCategory
-      )
-      setImages(response.data || [])
-    } catch (error) {
-      console.error('Error loading gallery:', error)
-    } finally {
+  const loadGallery = () => {
+    setLoading(true)
+    
+    // Simulate loading delay
+    setTimeout(() => {
+      const galleryImages = getImagesByCategory(selectedCategory)
+      setImages(galleryImages)
       setLoading(false)
+    }, 300)
+  }
+
+  const handleImageError = (imageId) => {
+    setImageLoadErrors(prev => ({
+      ...prev,
+      [imageId]: true
+    }))
+  }
+
+  const getImageSrc = (image) => {
+    if (imageLoadErrors[image._id]) {
+      return `https://via.placeholder.com/1200x800/e8a5b0/ffffff?text=${encodeURIComponent(image.title)}`
     }
+    return image.imageUrl
+  }
+
+  const getTotalImagesCount = () => {
+    if (selectedCategory === 'all') {
+      return Object.values(galleryConfig).reduce((sum, config) => sum + config.count, 0)
+    }
+    return galleryConfig[selectedCategory]?.count || 0
   }
 
   return (
@@ -43,8 +64,29 @@ export default function Gallery() {
             <p className="subtitle">Our Moments</p>
             <h2>Photo Gallery</h2>
             <div className="divider"></div>
+            <p className="gallery-stats">
+              📸 {getTotalImagesCount()} ảnh 
+              {selectedCategory !== 'all' && ` · ${galleryConfig[selectedCategory]?.label}`}
+            </p>
           </div>
 
+          {/* View Mode Toggle */}
+          <div className="gallery-view-toggle">
+            <button
+              className={`view-btn ${viewMode === 'carousel' ? 'active' : ''}`}
+              onClick={() => setViewMode('carousel')}
+            >
+              🎬 Carousel
+            </button>
+            <button
+              className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+              onClick={() => setViewMode('grid')}
+            >
+              📷 Grid
+            </button>
+          </div>
+
+          {/* Category Filters */}
           <div className="gallery-filters">
             {categories.map(cat => (
               <button
@@ -59,29 +101,49 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="gallery-grid-section section">
+      <section className="gallery-content-section section">
         <div className="container">
           {loading ? (
             <Loading />
           ) : images.length > 0 ? (
-            <div className="gallery-grid">
-              {images.map(image => (
-                <div 
-                  key={image._id} 
-                  className="gallery-item"
-                  onClick={() => setLightboxImage(image)}
-                >
-                  <img src={image.imageUrl} alt={image.title} />
-                  <div className="gallery-overlay">
-                    <h4>{image.title}</h4>
-                    <p>{image.description}</p>
-                  </div>
+            <>
+              {viewMode === 'carousel' ? (
+                <GalleryCarousel 
+                  images={images.map(img => ({
+                    ...img,
+                    imageUrl: getImageSrc(img)
+                  }))}
+                  autoPlayInterval={5000}
+                  onImageError={handleImageError}
+                />
+              ) : (
+                <div className="gallery-grid">
+                  {images.map(image => (
+                    <div 
+                      key={image._id} 
+                      className="gallery-item"
+                      onClick={() => setLightboxImage(image)}
+                    >
+                      <img 
+                        src={getImageSrc(image)} 
+                        alt={image.title}
+                        onError={() => handleImageError(image._id)}
+                      />
+                      <div className="gallery-overlay">
+                        <h4>{image.title}</h4>
+                        <p>{image.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           ) : (
             <div className="no-images">
               <p>Chưa có ảnh trong danh mục này</p>
+              <p className="hint">
+                Thêm ảnh vào thư mục: <code>{galleryConfig[selectedCategory]?.folder || '/images/gallery/'}</code>
+              </p>
             </div>
           )}
         </div>
@@ -91,7 +153,11 @@ export default function Gallery() {
         <div className="lightbox" onClick={() => setLightboxImage(null)}>
           <div className="lightbox-content" onClick={e => e.stopPropagation()}>
             <button className="lightbox-close" onClick={() => setLightboxImage(null)}>×</button>
-            <img src={lightboxImage.imageUrl} alt={lightboxImage.title} />
+            <img 
+              src={getImageSrc(lightboxImage)} 
+              alt={lightboxImage.title}
+              onError={() => handleImageError(lightboxImage._id)}
+            />
             <div className="lightbox-info">
               <h3>{lightboxImage.title}</h3>
               <p>{lightboxImage.description}</p>
