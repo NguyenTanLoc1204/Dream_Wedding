@@ -8,16 +8,16 @@ exports.submitContact = async (req, res, next) => {
   try {
     const { name, email, phone, message } = req.body;
 
-    // Check duplicate email trong vòng 24h (tránh spam)
+    // Check duplicate email trong vòng 5p (tránh spam)
     const existingContact = await Contact.findOne({
       email,
-      createdAt: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) }
+      createdAt: { $gte: new Date(Date.now() - 5 * 60 * 1000) }
     });
 
     if (existingContact) {
       return res.status(400).json({
         success: false,
-        message: 'Bạn đã gửi lời chúc rồi. Vui lòng đợi 24h để gửi lại.'
+        message: 'Bạn đã gửi lời chúc rồi. Vui lòng đợi 5p để gửi lại.'
       });
     }
 

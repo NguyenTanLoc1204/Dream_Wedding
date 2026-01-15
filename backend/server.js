@@ -23,3 +23,5 @@ process.on('unhandledRejection', (err) => {
   console.error(`❌ Unhandled Rejection: ${err.message}`);
   server.close(() => process.exit(1));
 });
+
+module.exports = app;

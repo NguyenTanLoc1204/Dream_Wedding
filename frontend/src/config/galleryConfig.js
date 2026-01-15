@@ -3,25 +3,25 @@ export const galleryConfig = {
   'pre-wedding': {
     label: 'Pre-Wedding',
     folder: '/images/gallery/pre-wedding',
-    count: 10, // Số ảnh có trong folder (pre-wedding1.jpg -> pre-wedding10.jpg)
+    count: 15, // Số ảnh có trong folder (pre-wedding1.jpg -> pre-wedding10.jpg)
     prefix: 'pre-wedding'
   },
   'engagement': {
     label: 'Lễ ăn hỏi',
     folder: '/images/gallery/engagement',
-    count: 8, // engagement1.jpg -> engagement8.jpg
+    count: 0, // engagement1.jpg -> engagement8.jpg
     prefix: 'engagement'
   },
   'ceremony': {
     label: 'Lễ cưới',
     folder: '/images/gallery/ceremony',
-    count: 15, // ceremony1.jpg -> ceremony15.jpg
+    count: 0, // ceremony1.jpg -> ceremony15.jpg
     prefix: 'ceremony'
   },
   'reception': {
     label: 'Tiệc cưới',
     folder: '/images/gallery/reception',
-    count: 12, // reception1.jpg -> reception12.jpg
+    count: 0, // reception1.jpg -> reception12.jpg
     prefix: 'reception'
   }
 }

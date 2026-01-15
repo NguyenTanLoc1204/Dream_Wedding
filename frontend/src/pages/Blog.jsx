@@ -1,31 +1,23 @@
 import { useState, useEffect } from 'react'
-import { blogService } from '../services/blogService'
-import BlogCard from '../components/cards/BlogCard'
-import Loading from '../components/common/Loading'
+import { Link } from 'react-router-dom'
+import { sampleBlogPosts } from '../config/blogConfig'
+import { formatDate } from '../utils/dateUtils'
 import './Blog.css'
 
 export default function Blog() {
-  const [blogs, setBlogs] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    loadBlogs()
+    // Mặc định sắp xếp: Mới nhất lên đầu
+    const sortedPosts = [...sampleBlogPosts].sort((a, b) => 
+      new Date(b.publishedAt) - new Date(a.publishedAt)
+    )
+    setPosts(sortedPosts)
   }, [])
-
-  const loadBlogs = async () => {
-    try {
-      setLoading(true)
-      const response = await blogService.getAllBlogs({ limit: 20 })
-      setBlogs(response.data || [])
-    } catch (error) {
-      console.error('Error loading blogs:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <div className="blog-page">
+      {/* Hero Section - Giữ nguyên nội dung text theo yêu cầu */}
       <section className="blog-hero section">
         <div className="container">
           <div className="section-title">
@@ -36,21 +28,56 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className="blog-list-section section">
-        <div className="container">
-          {loading ? (
-            <Loading />
-          ) : blogs.length > 0 ? (
-            <div className="blog-grid">
-              {blogs.map(blog => (
-                <BlogCard key={blog._id} blog={blog} />
-              ))}
-            </div>
-          ) : (
-            <div className="no-blogs">
-              <p>Chưa có bài viết nào</p>
-            </div>
-          )}
+      {/* Blog List - Style Classic */}
+      <section className="blog-list section">
+        <div className="container blog-container-classic">
+          <div className="blog-stream">
+            {posts.map(post => (
+              <article key={post._id} className="blog-classic-item">
+                
+                {/* 1. Image */}
+                <div className="blog-media">
+                  <Link to={`/blog/${post.slug}`}>
+                    <img src={post.imageUrl} alt={post.title} loading="lazy" />
+                  </Link>
+                </div>
+
+                {/* 2. Content Body (Centered) */}
+                <div className="blog-body">
+                  {/* Date */}
+                  <div className="blog-date">
+                    {formatDate(post.publishedAt)}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="blog-title">
+                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+
+                  {/* Meta */}
+                  <div className="blog-meta-info">
+                    <span>By {post.author}</span>
+                    <span className="sep">/</span>
+                    <span>Wedding Stories</span>
+                  </div>
+
+                  {/* Excerpt */}
+                  <p className="blog-excerpt">{post.excerpt}</p>
+
+                  {/* Button */}
+                  {/* <Link to={`/blog/${post.slug}`} className="btn-read-more">
+                    Đọc Tiếp
+                  </Link> */}
+                </div>
+
+                {/* Decorative Divider between posts */}
+                <div className="blog-divider-bottom">
+                  <span className="icon-leaf">❦</span>
+                </div>
+
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>

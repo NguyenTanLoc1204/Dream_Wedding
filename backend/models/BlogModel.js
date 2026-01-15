@@ -29,7 +29,7 @@ const blogSchema = new mongoose.Schema({
   cloudinaryId: String,
   author: {
     type: String,
-    default: 'Chi & Be'
+    default: 'Phương & Tú'
   },
   category: {
     type: String,

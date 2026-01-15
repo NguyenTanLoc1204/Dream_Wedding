@@ -140,10 +140,10 @@ export default function Gallery() {
             </>
           ) : (
             <div className="no-images">
-              <p>Chưa có ảnh trong danh mục này</p>
-              <p className="hint">
+              <p>Coming soon...</p>
+              {/* <p className="hint">
                 Thêm ảnh vào thư mục: <code>{galleryConfig[selectedCategory]?.folder || '/images/gallery/'}</code>
-              </p>
+              </p> */}
             </div>
           )}
         </div>

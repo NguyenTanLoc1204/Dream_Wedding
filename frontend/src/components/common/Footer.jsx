@@ -34,7 +34,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} Chi & Be Wedding. Made with ❤️</p>
+        <p>&copy; {currentYear} Hoàng Phương & Cẩm Tú Wedding. Made with ❤️</p>
       </div>
     </footer>
   )

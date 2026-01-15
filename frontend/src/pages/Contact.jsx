@@ -29,14 +29,14 @@ export default function Contact() {
                   <span className="icon">📧</span>
                   <div>
                     <h4>Email</h4>
-                    <p>contact@chiandbe.com</p>
+                    <p>phuonggtuuu@gmail.com</p>
                   </div>
                 </div>
                 <div className="info-item">
                   <span className="icon">📱</span>
                   <div>
                     <h4>Điện thoại</h4>
-                    <p>+84 901 234 567</p>
+                    <p>0375 987 029</p>
                   </div>
                 </div>
                 <div className="info-item">
