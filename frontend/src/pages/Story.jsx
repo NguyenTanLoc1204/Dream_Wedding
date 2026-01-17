@@ -54,7 +54,7 @@ export default function Story() {
     },
     {
       date: 'Tháng 11, 2022',
-      title: 'Khi nổi nhớ dẫn lối trở về1',
+      title: 'Khi nổi nhớ dẫn lối trở về',
       description: 'Khoảnh khắc chàng lên Đắk Lắk làm việc cũng là lúc trái tim buộc phải rời xa nơi nó thuộc về — là nàng. Chúng mình bước vào giai đoạn yêu xa, có lẽ là quãng thời gian khắc nghiệt và cô đơn nhất của cuộc tình. Những cái nắm tay, những ánh mắt, những hơi ấm từng quen thuộc giờ chỉ còn tồn tại trong ký ức, được thay thế bằng những dòng tin nhắn dài trong đêm và những cuộc điện thoại muộn, nơi nỗi nhớ lặng lẽ tràn ra theo từng nhịp thở. Ngày qua ngày, khoảng cách không chỉ đo bằng cây số, mà bằng cả những khoảnh khắc không thể ở bên nhau khi cần nhất. Đến tháng Mười Một, chàng nhận ra mình không thể tiếp tục chịu đựng thêm nữa. Nỗi nhớ nàng đã vượt qua mọi lý trí, kéo chàng trở lại Đà Nẵng — không vì điều gì khác, chỉ vì chàng cần được nhìn thấy nàng, được ở bên nàng, để trái tim mình lại được sống đúng nhịp. Và sau tất cả những xa cách, cuộc gặp gỡ ấy không chỉ hâm nóng lại yêu thương, mà còn khiến tình cảm trở nên sâu đậm hơn bao giờ hết. Chính những thử thách của yêu xa lần thứ hai đã dạy chúng mình cách thấu hiểu, cách trân trọng, và cách yêu nhau bằng một tình yêu chín chắn hơn, bền bỉ hơn — để rồi nhận ra rằng, càng đi qua gian khó, hai trái tim ấy lại càng tìm về gần nhau hơn.',
       image: '/images/timeline/timeline10.jpg',
       position: 'right'
